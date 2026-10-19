@@ -19,9 +19,13 @@ Windows PowerShell 中使用 `py -3.12 -m venv .venv` 和 `.venv\Scripts\Activat
 
 ### GitHub Actions
 
-工作流使用标准 Ubuntu 24.04 运行器，读取 `.python-version`，安装 `requirements.txt` 中的依赖并执行构建。
+工作流在 Ubuntu 24.04 上构建网站，将 `dist/` 发布到 GitHub Pages。Python 版本由 `.python-version` 指定。
 
-工作流位于 GitHub 默认分支后，从 **Actions → Build site → Run workflow** 手动运行。工作流只构建网站，不执行发布。
+1. 将工作流提交并推送到 `main`。
+2. 在 **Settings → Pages → Source** 中选择 **GitHub Actions**。
+3. 在 **Actions → Deploy site → Run workflow** 中选择 `main`，手动发布。
+
+网站：[leisuregensoul.github.io](https://leisuregensoul.github.io/)。
 
 ## English
 
@@ -40,6 +44,10 @@ See the [README](../README.md#build) for dependency installation, build, and pre
 
 ### GitHub Actions
 
-The workflow uses a standard Ubuntu 24.04 runner, reads `.python-version`, installs dependencies from `requirements.txt` and builds the site.
+The workflow builds on Ubuntu 24.04 and deploys `dist/` to GitHub Pages. `.python-version` specifies the Python version.
 
-With the workflow on the repository’s default branch, run it from **Actions → Build site → Run workflow**. The workflow builds the site without deploying it.
+1. Commit and push the workflow to `main`.
+2. Under **Settings → Pages → Source**, select **GitHub Actions**.
+3. Open **Actions → Deploy site → Run workflow**, select `main`, and deploy manually.
+
+Site: [leisuregensoul.github.io](https://leisuregensoul.github.io/).

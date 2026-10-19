@@ -1,10 +1,14 @@
-name: Build site
+name: Deploy site
 
 on:
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -17,7 +21,26 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version-file: .python-version
+      - uses: actions/configure-pages@v5
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
       - name: Build
         run: python -m generator
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
