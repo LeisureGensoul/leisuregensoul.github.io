@@ -21,9 +21,9 @@ Windows PowerShell 中使用 `py -3.12 -m venv .venv` 和 `.venv\Scripts\Activat
 
 工作流在 Ubuntu 24.04 上构建网站，将 `dist/` 发布到 GitHub Pages。Python 版本由 `.python-version` 指定。
 
-1. 将工作流提交并推送到 `main`。
-2. 在 **Settings → Pages → Source** 中选择 **GitHub Actions**。
-3. 在 **Actions → Deploy site → Run workflow** 中选择 `main`，手动发布。
+在 **Settings → Pages → Source** 中选择 **GitHub Actions**。工作流推送到 `main` 后，每次推送到该分支都会自动构建并发布。
+
+也可在 **Actions → Deploy site → Run workflow** 中选择 `main`，手动发布。
 
 网站：[leisuregensoul.github.io](https://leisuregensoul.github.io/)。
 
@@ -46,8 +46,8 @@ See the [README](../README.md#build) for dependency installation, build, and pre
 
 The workflow builds on Ubuntu 24.04 and deploys `dist/` to GitHub Pages. `.python-version` specifies the Python version.
 
-1. Commit and push the workflow to `main`.
-2. Under **Settings → Pages → Source**, select **GitHub Actions**.
-3. Open **Actions → Deploy site → Run workflow**, select `main`, and deploy manually.
+Under **Settings → Pages → Source**, select **GitHub Actions**. Once the workflow is pushed to `main`, every push to that branch automatically builds and deploys the site.
+
+To deploy manually, open **Actions → Deploy site → Run workflow** and select `main`.
 
 Site: [leisuregensoul.github.io](https://leisuregensoul.github.io/).
